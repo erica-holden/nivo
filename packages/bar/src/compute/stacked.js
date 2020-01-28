@@ -87,7 +87,7 @@ export const generateVerticalStackedBars = ({
         getHeight = (d, y) => yScale(d[1]) - y
     }
 
-    if (barWidth > 0) {
+    if (barWidth >= 0) {
         stackedData.forEach(stackedDataItem => {
             xScale.domain().forEach((index, i) => {
                 const d = stackedDataItem[i]
@@ -100,7 +100,7 @@ export const generateVerticalStackedBars = ({
                     barHeight -= innerPadding
                 }
 
-                if (barHeight > 0) {
+                if (barHeight >= 0) {
                     const barData = {
                         id: stackedDataItem.key,
                         value: d.data[stackedDataItem.key],
